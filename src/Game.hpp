@@ -5,6 +5,8 @@
 #include "Field.hpp"
 #include "Player.hpp"
 
+#include <functional>
+
 class Game final
 {
 public:
@@ -16,7 +18,7 @@ public:
 
     void exec();
 
-    void setIsGameOver(bool isGameOver);
+    void onGameOver();
     bool isGameOver() const;
 
 private:

@@ -8,12 +8,34 @@ Logic::Logic(Game* gamePtr, Field& field, Player& player)
     , _player(player)
 {
     _field.setUpdateBlocksCallback(std::bind(&Logic::onBlocksUpdate, this));
-    _player.setMovedCallback(std::bind(&Logic::onPlayerMoved, this, std::placeholders::_1, std::placeholders::_2));
+    _player.setMovedCursorCallback(std::bind(&Logic::onPlayerMovedCursor, this, std::placeholders::_1));
+    _player.setSettedCallback(std::bind(&Logic::onPlayerSetted, this));
 }
 
-void Logic::onPlayerMoved(int x, int y)
+void Logic::onPlayerMovedCursor(Cursor::Direction direction)
 {
-    _field.setBlockState(x - 1, y - 1, _player.getBlockState());
+    auto& cursor = _field.getCursor();
+    if (!cursor.isActive()) {
+        return;
+    }
+
+    _field.getCursor().move(direction);
+    _field.update();
+}
+
+void Logic::onPlayerSetted()
+{
+    auto& cursor = _field.getCursor();
+    if (!cursor.isActive()) {
+        return;
+    }
+
+    const int x = cursor.getX();
+    const int y = cursor.getY();
+
+    cursor.setIsActive(false);
+
+    _field.setBlockState(x, y, _player.getBlockState());
     _field.update();
 }
 
@@ -22,7 +44,7 @@ void Logic::onBlocksUpdate()
     const auto playerBlockState = _player.getBlockState();
 
     if (checkStateWithField(playerBlockState)) {
-        _gamePtr->setIsGameOver(true);
+        _gamePtr->onGameOver();
     }
 }
 

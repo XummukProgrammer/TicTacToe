@@ -19,6 +19,11 @@ void Field::setUpdateBlocksCallback(const UpdateBlocksCallback& callback)
     _updateBlocksCallback = callback;
 }
 
+Cursor& Field::getCursor()
+{
+    return _cursor;
+}
+
 void Field::reset()
 {
     modifyBlock([](Block& block, const int x, const int y) {
@@ -30,13 +35,15 @@ void Field::draw()
 {
     modifyBlock([this](Block& block, const int x, const int y) {
         gotoxy(x, y);
-
-        const char symbol = getSymbolFromBlock(block);
-        std::cout << symbol;
+        std::cout << block.getSymbol();
     });
 
+    if (_cursor.isActive()) {
+        gotoxy(_cursor.getX(), _cursor.getY());
+        std::cout << _cursor.getSymbol();
+    }
+
     gotoxy(0, MAX_HEIGHT);
-    std::cout << "Input X, Y: ";
 }
 
 void Field::update()
@@ -51,16 +58,6 @@ void Field::update()
     if (_updateBlocksCallback) {
         _updateBlocksCallback();
     }
-}
-
-char Field::getSymbolFromBlock(const Block& block)
-{
-    switch (block.getState()) {
-        case Block::State::Empty: return '.';
-        case Block::State::Cross: return 'X';
-        case Block::State::Zero: return '0';
-    }
-    return 'E';
 }
 
 void Field::modifyBlock(const ModifyBlockCallback& callback)

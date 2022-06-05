@@ -21,43 +21,52 @@
 	<iostream>
 	"src/Game.hpp"
 
-1654416544 c:\games\tictactoe\tictactoe\src\field.hpp
+1654421676 c:\games\tictactoe\tictactoe\src\field.hpp
 	"Block.hpp"
+	"Cursor.hpp"
 	<functional>
 
-1654402353 c:\games\tictactoe\tictactoe\src\block.hpp
+1654420806 c:\games\tictactoe\tictactoe\src\block.hpp
 
-1654402449 source:c:\games\tictactoe\tictactoe\src\block.cpp
+1654420162 source:c:\games\tictactoe\tictactoe\src\block.cpp
 	"Block.hpp"
 
-1654416552 source:c:\games\tictactoe\tictactoe\src\field.cpp
+1654421695 source:c:\games\tictactoe\tictactoe\src\field.cpp
 	"Field.hpp"
 	<iostream>
 	<windows.h>
 
-1654412051 c:\games\tictactoe\tictactoe\src\player.hpp
+1654423070 c:\games\tictactoe\tictactoe\src\player.hpp
 	"Block.hpp"
+	"Cursor.hpp"
 	<functional>
 
-1654412074 source:c:\games\tictactoe\tictactoe\src\player.cpp
+1654423173 source:c:\games\tictactoe\tictactoe\src\player.cpp
 	"Player.hpp"
 	<stdio.h>
 	<conio.h>
-	<iostream>
 
-1654416115 c:\games\tictactoe\tictactoe\src\game.hpp
+1654420057 c:\games\tictactoe\tictactoe\src\game.hpp
 	"Logic.hpp"
 	"Field.hpp"
 	"Player.hpp"
+	<functional>
 
-1654416077 source:c:\games\tictactoe\tictactoe\src\game.cpp
+1654419969 source:c:\games\tictactoe\tictactoe\src\game.cpp
 	"Game.hpp"
 
-1654416733 c:\games\tictactoe\tictactoe\src\logic.hpp
+1654423122 c:\games\tictactoe\tictactoe\src\logic.hpp
 	"Field.hpp"
 	"Player.hpp"
 
-1654417440 source:c:\games\tictactoe\tictactoe\src\logic.cpp
+1654422984 source:c:\games\tictactoe\tictactoe\src\logic.cpp
 	"Logic.hpp"
 	"Game.hpp"
+
+1654422375 c:\games\tictactoe\tictactoe\src\cursor.hpp
+	"Block.hpp"
+
+1654422955 source:c:\games\tictactoe\tictactoe\src\cursor.cpp
+	"Cursor.hpp"
+	"Field.hpp"
 

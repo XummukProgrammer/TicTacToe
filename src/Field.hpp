@@ -2,6 +2,7 @@
 #define __FIELD_INCLUDE_FILE__
 
 #include "Block.hpp"
+#include "Cursor.hpp"
 
 #include <functional>
 
@@ -25,6 +26,8 @@ public:
     void setBlockState(int x, int y, Block::State state);
     bool isEqualBlockState(int x, int y, Block::State state) const;
 
+    Cursor& getCursor();
+
     void reset();
 
     void draw();
@@ -33,12 +36,11 @@ public:
     static void gotoxy(const int x, const int y);
 
 private:
-    char getSymbolFromBlock(const Block& block);
-
     void modifyBlock(const ModifyBlockCallback& callback);
 
 private:
     Block _blocks[MAX_HEIGHT][MAX_WIDTH];
+    Cursor _cursor;
     UpdateBlocksCallback _updateBlocksCallback;
 };
 

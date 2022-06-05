@@ -20,9 +20,9 @@ void Game::exec()
     }
 }
 
-void Game::setIsGameOver(bool isGameOver)
+void Game::onGameOver()
 {
-    _isGameOver = isGameOver;
+    _isGameOver = true;
 }
 
 bool Game::isGameOver() const

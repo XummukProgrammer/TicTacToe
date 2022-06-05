@@ -13,7 +13,8 @@ public:
     ~Logic() = default;
 
 private:
-    void onPlayerMoved(int x, int y);
+    void onPlayerMovedCursor(Cursor::Direction direction);
+    void onPlayerSetted();
     void onBlocksUpdate();
 
 private:

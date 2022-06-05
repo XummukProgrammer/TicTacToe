@@ -1,23 +1,26 @@
 #ifndef __BLOCK_INCLUDE_FILE__
 #define __BLOCK_INCLUDE_FILE__
 
-class Block final
+class Block
 {
 public:
     enum class State
     {
         Empty,
         Cross,
-        Zero
+        Zero,
+        Cursor
     };
 
 public:
     Block() = default;
-    ~Block() = default;
+    virtual ~Block() = default;
 
 public:
     void setState(State state);
     const State& getState() const;
+
+    char getSymbol() const;
 
 private:
     State _state;

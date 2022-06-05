@@ -3,11 +3,14 @@
 #include <stdio.h>
 #include <conio.h>
 
-#include <iostream>
-
-void Player::setMovedCallback(const MovedCallback& callback)
+void Player::setMovedCursorCallback(const MovedCursorCallback& callback)
 {
-    _movedCallback = callback;
+    _movedCursorCallback = callback;
+}
+
+void Player::setSettedCallback(const SettedCallback& callback)
+{
+    _settedCallback = callback;
 }
 
 void Player::setBlockState(Block::State blockState)
@@ -23,10 +26,27 @@ Block::State Player::getBlockState() const
 void Player::input()
 {
     if (kbhit()) {
-        if (_movedCallback) {
-            int x = 0, y = 0;
-            std::cin >> x >> y;
-            _movedCallback(x, y);
+        char keyboard = _getch();
+
+        if (keyboard == 72) {
+            onMovedCursor(Cursor::Direction::Up);
+        } else if (keyboard == 80) {
+            onMovedCursor(Cursor::Direction::Down);
+        } else if (keyboard == 75) {
+            onMovedCursor(Cursor::Direction::Left);
+        } else if (keyboard == 77) {
+            onMovedCursor(Cursor::Direction::Right);
+        } else if (keyboard == 13) {
+            if (_settedCallback) {
+                _settedCallback();
+            }
         }
+    }
+}
+
+void Player::onMovedCursor(Cursor::Direction direction)
+{
+    if (_movedCursorCallback) {
+        _movedCursorCallback(direction);
     }
 }
