@@ -2,6 +2,8 @@
 
 #include "Game.hpp"
 
+#include <vector>
+
 Logic::Logic(Game* gamePtr, Field& field, Player& player, Enemy& enemy)
     : _gamePtr(gamePtr)
     , _field(field)
@@ -52,6 +54,18 @@ void Logic::onPlayerSetted()
 
 void Logic::onEnemySetted()
 {
+    std::vector<std::pair<int, int>> freeBlocks;
+
+    _field.modifyBlock([&freeBlocks](Block& block, const int x, const int y) {
+        if (block.getState() == Block::State::Empty) {
+            freeBlocks.push_back({ x, y });
+        }
+    });
+
+    const int index = static_cast<int>(freeBlocks.size()) / 2;
+    const auto& freeBlock = freeBlocks[index];
+    _field.setBlockState(freeBlock.first, freeBlock.second, _enemy.getBlockState());
+
     _field.getCursor().setIsActive(true);
     _field.update();
 

@@ -37,6 +37,8 @@
 		<Unit filename="src/Block.hpp" />
 		<Unit filename="src/Cursor.cpp" />
 		<Unit filename="src/Cursor.hpp" />
+		<Unit filename="src/Enemy.cpp" />
+		<Unit filename="src/Enemy.hpp" />
 		<Unit filename="src/Field.cpp" />
 		<Unit filename="src/Field.hpp" />
 		<Unit filename="src/Game.cpp" />

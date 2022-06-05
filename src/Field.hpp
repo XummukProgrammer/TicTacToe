@@ -30,10 +30,9 @@ public:
     void draw();
     void update();
 
-    static void gotoxy(const int x, const int y);
-
-private:
     void modifyBlock(const ModifyBlockCallback& callback);
+
+    static void gotoxy(const int x, const int y);
 
 private:
     Block _blocks[MAX_HEIGHT][MAX_WIDTH];
