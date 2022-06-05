@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1654404156 source:c:\users\Андрей\documents\games\tictactoe\tictactoe\main.cpp
+	<iostream>
+	"src/Field.hpp"
+
+1654402353 c:\users\Андрей\documents\games\tictactoe\tictactoe\src\block.hpp
+
+1654402449 source:c:\users\Андрей\documents\games\tictactoe\tictactoe\src\block.cpp
+	"Block.hpp"
+
+1654404371 source:c:\users\Андрей\documents\games\tictactoe\tictactoe\src\field.cpp
+	"Field.hpp"
+	<stdio.h>
+
+1654404080 c:\users\Андрей\documents\games\tictactoe\tictactoe\src\field.hpp
+	"Block.hpp"
+	<optional>
+	<functional>
+
+1654406560 source:c:\games\tictactoe\tictactoe\main.cpp
+	<iostream>
+	"src/Game.hpp"
+
+1654416544 c:\games\tictactoe\tictactoe\src\field.hpp
+	"Block.hpp"
+	<functional>
+
+1654402353 c:\games\tictactoe\tictactoe\src\block.hpp
+
+1654402449 source:c:\games\tictactoe\tictactoe\src\block.cpp
+	"Block.hpp"
+
+1654416552 source:c:\games\tictactoe\tictactoe\src\field.cpp
+	"Field.hpp"
+	<iostream>
+	<windows.h>
+
+1654412051 c:\games\tictactoe\tictactoe\src\player.hpp
+	"Block.hpp"
+	<functional>
+
+1654412074 source:c:\games\tictactoe\tictactoe\src\player.cpp
+	"Player.hpp"
+	<stdio.h>
+	<conio.h>
+	<iostream>
+
+1654416115 c:\games\tictactoe\tictactoe\src\game.hpp
+	"Logic.hpp"
+	"Field.hpp"
+	"Player.hpp"
+
+1654416077 source:c:\games\tictactoe\tictactoe\src\game.cpp
+	"Game.hpp"
+
+1654416733 c:\games\tictactoe\tictactoe\src\logic.hpp
+	"Field.hpp"
+	"Player.hpp"
+
+1654417440 source:c:\games\tictactoe\tictactoe\src\logic.cpp
+	"Logic.hpp"
+	"Game.hpp"
+
