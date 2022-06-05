@@ -14,11 +14,6 @@ bool Field::isEqualBlockState(int x, int y, Block::State state) const
     return _blocks[y][x].getState() == state;
 }
 
-void Field::setUpdateBlocksCallback(const UpdateBlocksCallback& callback)
-{
-    _updateBlocksCallback = callback;
-}
-
 Cursor& Field::getCursor()
 {
     return _cursor;
@@ -54,10 +49,6 @@ void Field::update()
     }
 
     draw();
-
-    if (_updateBlocksCallback) {
-        _updateBlocksCallback();
-    }
 }
 
 void Field::modifyBlock(const ModifyBlockCallback& callback)

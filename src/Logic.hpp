@@ -3,19 +3,20 @@
 
 #include "Field.hpp"
 #include "Player.hpp"
+#include "Enemy.hpp"
 
 class Game;
 
 class Logic final
 {
 public:
-    Logic(Game* gamePtr, Field& field, Player& player);
+    Logic(Game* gamePtr, Field& field, Player& player, Enemy& enemy);
     ~Logic() = default;
 
 private:
     void onPlayerMovedCursor(Cursor::Direction direction);
     void onPlayerSetted();
-    void onBlocksUpdate();
+    void onEnemySetted();
 
 private:
     bool checkStateWithField(Block::State blockState) const;
@@ -24,6 +25,7 @@ private:
     Game* _gamePtr = nullptr;
     Field& _field;
     Player& _player;
+    Enemy& _enemy;
 
 };
 

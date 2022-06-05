@@ -2,14 +2,15 @@
 
 #include "Game.hpp"
 
-Logic::Logic(Game* gamePtr, Field& field, Player& player)
+Logic::Logic(Game* gamePtr, Field& field, Player& player, Enemy& enemy)
     : _gamePtr(gamePtr)
     , _field(field)
     , _player(player)
+    , _enemy(enemy)
 {
-    _field.setUpdateBlocksCallback(std::bind(&Logic::onBlocksUpdate, this));
     _player.setMovedCursorCallback(std::bind(&Logic::onPlayerMovedCursor, this, std::placeholders::_1));
     _player.setSettedCallback(std::bind(&Logic::onPlayerSetted, this));
+    _enemy.setSettedCallback(std::bind(&Logic::onEnemySetted, this));
 }
 
 void Logic::onPlayerMovedCursor(Cursor::Direction direction)
@@ -41,13 +42,22 @@ void Logic::onPlayerSetted()
 
     _field.setBlockState(x, y, _player.getBlockState());
     _field.update();
+
+    _gamePtr->toggleOpponent();
+
+    if (checkStateWithField(_player.getBlockState())) {
+        _gamePtr->onGameWin();
+    }
 }
 
-void Logic::onBlocksUpdate()
+void Logic::onEnemySetted()
 {
-    const auto playerBlockState = _player.getBlockState();
+    _field.getCursor().setIsActive(true);
+    _field.update();
 
-    if (checkStateWithField(playerBlockState)) {
+    _gamePtr->toggleOpponent();
+
+    if (checkStateWithField(_enemy.getBlockState())) {
         _gamePtr->onGameOver();
     }
 }

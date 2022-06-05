@@ -22,6 +22,7 @@ public:
 
     void setBlockState(Block::State blockState);
     Block::State getBlockState() const;
+    Block::State getReverseBlockState() const;
 
     void input();
 

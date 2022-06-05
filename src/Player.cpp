@@ -23,6 +23,15 @@ Block::State Player::getBlockState() const
     return _blockState;
 }
 
+Block::State Player::getReverseBlockState() const
+{
+    switch (_blockState) {
+        case Block::State::Cross: return Block::State::Zero;
+        case Block::State::Zero: return Block::State::Cross;
+    }
+    return Block::State::Empty;
+}
+
 void Player::input()
 {
     if (kbhit()) {
