@@ -19,7 +19,7 @@ void Logic::onPlayerMovedCursor(Cursor::Direction direction)
         return;
     }
 
-    _field.getCursor().move(direction);
+    cursor.move(direction);
     _field.update();
 }
 
