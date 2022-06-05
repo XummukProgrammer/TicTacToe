@@ -35,8 +35,16 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Block.cpp" />
 		<Unit filename="src/Block.hpp" />
+		<Unit filename="src/Cursor.cpp" />
+		<Unit filename="src/Cursor.hpp" />
 		<Unit filename="src/Field.cpp" />
 		<Unit filename="src/Field.hpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Game.hpp" />
+		<Unit filename="src/Logic.cpp" />
+		<Unit filename="src/Logic.hpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Player.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

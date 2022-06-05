@@ -33,6 +33,10 @@ void Logic::onPlayerSetted()
     const int x = cursor.getX();
     const int y = cursor.getY();
 
+    if (!_field.isEqualBlockState(x, y, Block::State::Empty)) {
+        return;
+    }
+
     cursor.setIsActive(false);
 
     _field.setBlockState(x, y, _player.getBlockState());
